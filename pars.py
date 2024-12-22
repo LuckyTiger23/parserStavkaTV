@@ -11,13 +11,13 @@ if response.status_code == 200:
 
 
     # Ищем заголовки. Измените 'h2' на нужный тег, если нужно
-    title = soup.find_all('section', class_='MatchesTable MatchesTable--football')  
+    titles = soup.find_all('div', class_='column column--left')  
 
     # Открываем файл для записи
     with open('results.txt', 'w', encoding='utf-8') as file:
         # Записываем найденные заголовки в файл
         for title in titles:
-            file.write(title.text + text.text + '\n')  # добавляем перевод строки
+            file.write(title.text + '\n')  # добавляем перевод строки
 
     print('Заголовки успешно записаны в файл results.txt')  # Подтверждение успешной записи
 else:
